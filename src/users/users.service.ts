@@ -7,7 +7,7 @@ import { UsersRepository } from "./users.repository";
 
 @Injectable()
 export class UsersService {
-    constructor(private readonly usersRepository: UsersRepository) {}
+    constructor(private readonly usersRepository: UsersRepository) { }
 
     async getUserById(userId: string): Promise<User> {
         return this.usersRepository.findOne({ userId })

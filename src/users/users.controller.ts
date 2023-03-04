@@ -7,7 +7,7 @@ import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(private readonly usersService: UsersService) { }
 
   @Get(':userId')
   async getUser(@Param('userId') userId: string): Promise<User> {
@@ -16,16 +16,16 @@ export class UsersController {
 
   @Get()
   async getUsers(): Promise<User[]> {
-      return this.usersService.getUsers();
+    return this.usersService.getUsers();
   }
 
   @Post()
   async createUser(@Body() createUserDto: CreateUserDto): Promise<User> {
-      return this.usersService.createUser(createUserDto.email, createUserDto.age)
+    return this.usersService.createUser(createUserDto.email, createUserDto.age)
   }
 
   @Patch(':userId')
   async updateUser(@Param('userId') userId: string, @Body() updateUserDto: UpdateUserDto): Promise<User> {
-      return this.usersService.updateUser(userId, updateUserDto);
+    return this.usersService.updateUser(userId, updateUserDto);
   }
 }
